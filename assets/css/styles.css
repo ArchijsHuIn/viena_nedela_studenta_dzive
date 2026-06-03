@@ -12,6 +12,9 @@
   --line: rgba(31, 41, 51, 0.14);
   --shadow: 0 18px 45px rgba(31, 41, 51, 0.1);
   --radius: 24px;
+  --pill-radius: 999px;
+  --content-width: min(1180px, 90vw);
+  --content-width-mobile: min(94vw, 1180px);
 }
 
 body.dark {
@@ -68,7 +71,7 @@ button:focus-visible {
   left: 16px;
   z-index: 999;
   padding: 10px 14px;
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   background: var(--text);
   color: var(--bg);
 }
@@ -86,10 +89,6 @@ button:focus-visible {
     radial-gradient(circle at top left, rgba(217, 144, 88, 0.28), transparent 32%),
     linear-gradient(135deg, var(--surface), var(--surface-soft));
   border-bottom: 1px solid var(--line);
-}
-
-.day-header {
-  min-height: 48vh;
 }
 
 .hero {
@@ -131,7 +130,7 @@ h1 {
   padding: 10px 14px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   box-shadow: var(--shadow);
   color: var(--muted);
 }
@@ -143,7 +142,7 @@ h1 {
 .hero-visual {
   position: relative;
   overflow: hidden;
-  min-height: 430px;
+  height: 430px;
   border: 1px solid var(--line);
   border-radius: 34px;
   background: var(--surface);
@@ -160,29 +159,10 @@ h1 {
   transition: transform 0.28s ease, filter 0.28s ease;
 }
 
-.photo-job-desk,
-.photo-concert {
-  object-position: center;
-}
-
 .photo-main {
   object-position: center 58%;
   transform: scale(1.16);
   transform-origin: center 62%;
-}
-
-.photo-job-outside {
-  object-position: center 55%;
-}
-
-.photo-gym-tuesday,
-.photo-school-work,
-.photo-marathon {
-  object-position: center 45%;
-}
-
-.photo-gym-thursday {
-  object-position: center 40%;
 }
 
 .day-card-link .photo-job-outside {
@@ -223,7 +203,7 @@ h1 {
 }
 
 .topbar-inner {
-  width: min(1180px, 90vw);
+  width: var(--content-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
@@ -232,18 +212,23 @@ h1 {
   padding: 14px 0;
 }
 
-.home-link {
-  text-decoration: none;
-  color: var(--text);
+.home-link,
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--pill-radius);
+  background: var(--primary-strong);
+  color: var(--bg);
   font-weight: 800;
   white-space: nowrap;
 }
 
-.home-link:hover,
-.home-link[aria-current="page"] {
-  color: var(--primary-strong);
-  text-decoration: underline;
-  text-underline-offset: 5px;
+.home-link {
+  text-decoration: none;
 }
 
 .day-nav {
@@ -259,7 +244,7 @@ h1 {
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   background: var(--surface);
   color: var(--text);
   text-decoration: none;
@@ -294,7 +279,7 @@ h1 {
   width: max-content;
   padding: 7px 11px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   background: var(--surface-soft);
   color: var(--muted);
   font-weight: 700;
@@ -303,18 +288,11 @@ h1 {
 }
 
 .mode-toggle {
-  border: 0;
-  border-radius: 999px;
-  padding: 10px 14px;
-  background: var(--primary-strong);
-  color: var(--bg);
   cursor: pointer;
-  font-weight: 700;
-  white-space: nowrap;
 }
 
 main {
-  width: min(1180px, 90vw);
+  width: var(--content-width);
   margin: 0 auto;
   padding: 52px 0 72px;
 }
@@ -409,7 +387,7 @@ main {
   width: max-content;
   margin-bottom: 14px;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   background: var(--accent-soft);
   color: var(--primary-strong);
   font-weight: 800;
@@ -457,7 +435,7 @@ main {
   min-height: 44px;
   padding: 10px 16px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--pill-radius);
   background: var(--surface-soft);
   color: var(--text);
   text-decoration: none;
@@ -527,7 +505,7 @@ footer {
   }
 
   .hero-visual {
-    min-height: 330px;
+    height: 330px;
   }
 
   .day-photo {
@@ -554,13 +532,9 @@ footer {
 
 @media (max-width: 700px) {
   .topbar-inner {
-    width: min(94vw, 1180px);
+    width: var(--content-width-mobile);
     grid-template-columns: 1fr;
     align-items: stretch;
-  }
-
-  .home-link {
-    text-align: center;
   }
 
   .day-nav {
@@ -579,7 +553,7 @@ footer {
   }
 
   main {
-    width: min(94vw, 1180px);
+    width: var(--content-width-mobile);
     padding-top: 30px;
   }
 
@@ -595,8 +569,7 @@ footer {
     border-radius: 18px;
   }
 
-  .day-card-link,
-  .day-photo {
+  .day-card-link {
     min-height: auto;
   }
 
@@ -605,7 +578,7 @@ footer {
   }
 
   .hero-visual {
-    min-height: 270px;
+    height: 270px;
     border-radius: 24px;
   }
 

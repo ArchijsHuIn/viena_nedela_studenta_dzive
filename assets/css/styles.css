@@ -78,7 +78,7 @@ button:focus-visible {
 }
 
 .site-header {
-  min-height: 78vh;
+  min-height: 70vh;
   display: grid;
   place-items: center;
   padding: 32px 5vw 48px;
@@ -86,6 +86,10 @@ button:focus-visible {
     radial-gradient(circle at top left, rgba(217, 144, 88, 0.28), transparent 32%),
     linear-gradient(135deg, var(--surface), var(--surface-soft));
   border-bottom: 1px solid var(--line);
+}
+
+.day-header {
+  min-height: 48vh;
 }
 
 .hero {
@@ -136,100 +140,77 @@ h1 {
   color: var(--text);
 }
 
-.hero-visual,
-.illustration {
+.hero-visual {
   position: relative;
   overflow: hidden;
-  background: var(--surface);
+  min-height: 430px;
   border: 1px solid var(--line);
+  border-radius: 34px;
+  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
-.hero-visual {
-  min-height: 430px;
-  border-radius: 34px;
+.hero-visual img,
+.day-card-link img,
+.day-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.28s ease, filter 0.28s ease;
 }
 
-.desk {
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 18%;
-  height: 34%;
-  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
-  border-radius: 26px;
-  border: 1px solid var(--line);
+.photo-job-desk,
+.photo-concert {
+  object-position: center;
 }
 
-.screen {
-  position: absolute;
-  left: 23%;
-  top: 18%;
-  width: 42%;
-  height: 38%;
-  background: var(--primary-strong);
-  border-radius: 18px;
-  box-shadow: 0 18px 0 var(--surface-soft);
+.photo-main {
+  object-position: center 58%;
+  transform: scale(1.16);
+  transform-origin: center 62%;
 }
 
-.screen::before,
-.screen::after {
-  content: "";
-  position: absolute;
-  left: 11%;
-  right: 11%;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
+.photo-job-outside {
+  object-position: center 55%;
 }
 
-.screen::before {
-  top: 25%;
+.photo-gym-tuesday,
+.photo-school-work,
+.photo-marathon {
+  object-position: center 45%;
 }
 
-.screen::after {
-  top: 45%;
-  width: 48%;
-  right: auto;
+.photo-gym-thursday {
+  object-position: center 40%;
 }
 
-.coffee {
-  position: absolute;
-  right: 18%;
-  top: 48%;
-  width: 72px;
-  height: 88px;
-  background: var(--surface-soft);
-  border: 8px solid var(--primary);
-  border-radius: 12px 12px 24px 24px;
+.day-card-link .photo-job-outside {
+  object-position: center 52%;
 }
 
-.coffee::after {
-  content: "";
-  position: absolute;
-  right: -32px;
-  top: 22px;
-  width: 30px;
-  height: 34px;
-  border: 7px solid var(--primary);
-  border-left: 0;
-  border-radius: 0 18px 18px 0;
+.day-card-link .photo-gym-tuesday,
+.day-card-link .photo-school-work,
+.day-card-link .photo-marathon {
+  object-position: center 42%;
 }
 
-.calendar {
-  position: absolute;
-  right: 8%;
-  top: 12%;
-  width: 104px;
-  height: 104px;
-  display: grid;
-  place-items: center;
-  background: var(--accent-soft);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  color: var(--primary-strong);
-  font-size: 2.4rem;
-  font-weight: 800;
+.day-card-link .photo-gym-thursday {
+  object-position: center 36%;
+}
+
+.day-photo .photo-job-outside {
+  object-position: center 58%;
+}
+
+.day-photo .photo-gym-tuesday,
+.day-photo .photo-school-work,
+.day-photo .photo-marathon {
+  object-position: center 48%;
+}
+
+.day-photo .photo-gym-thursday {
+  object-position: center 42%;
 }
 
 .topbar {
@@ -258,7 +239,8 @@ h1 {
   white-space: nowrap;
 }
 
-.home-link:hover {
+.home-link:hover,
+.home-link[aria-current="page"] {
   color: var(--primary-strong);
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -274,11 +256,13 @@ h1 {
 .day-button {
   width: 42px;
   height: 42px;
+  display: grid;
+  place-items: center;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
-  cursor: pointer;
+  text-decoration: none;
   font-weight: 900;
   box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
   transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
@@ -289,7 +273,8 @@ h1 {
   background: var(--surface-soft);
 }
 
-.day-button.active {
+.day-button.active,
+.day-button[aria-current="page"] {
   background: var(--primary-strong);
   color: var(--bg);
 }
@@ -298,16 +283,23 @@ h1 {
   color: var(--weekend);
 }
 
-.day-button.weekend.active {
+.day-button.weekend.active,
+.day-button.weekend[aria-current="page"] {
   background: var(--weekend);
   color: #fff;
 }
 
 .active-day-text {
+  justify-self: end;
+  width: max-content;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
   color: var(--muted);
   font-weight: 700;
-  min-width: 92px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .mode-toggle {
@@ -327,21 +319,28 @@ main {
   padding: 52px 0 72px;
 }
 
+.intro-note,
+.section-card,
+.day-detail,
+.closing {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
 .intro-note {
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
   gap: 24px;
   align-items: start;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
   padding: 28px;
   margin-bottom: 28px;
 }
 
 .intro-note h2,
 .section-card h2,
+.day-detail h2,
 .closing h2 {
   line-height: 1.15;
   font-size: clamp(1.45rem, 3vw, 2.15rem);
@@ -349,6 +348,7 @@ main {
 
 .intro-note p,
 .section-card p,
+.day-detail p,
 .closing p {
   color: var(--muted);
   margin-top: 12px;
@@ -361,15 +361,37 @@ main {
 }
 
 .section-card {
-  scroll-margin-top: 98px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow);
 }
 
-.section-card:nth-child(5) {
+.day-card-link {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.day-card-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 52px rgba(31, 41, 51, 0.14);
+}
+
+.day-card-link:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.04);
+}
+
+.day-card-link img {
+  height: 210px;
+  margin-bottom: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.featured-card {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -377,8 +399,14 @@ main {
   align-items: center;
 }
 
+.featured-card img {
+  height: 280px;
+  margin-bottom: 0;
+}
+
 .day-label {
   display: inline-block;
+  width: max-content;
   margin-bottom: 14px;
   padding: 6px 12px;
   border-radius: 999px;
@@ -392,73 +420,64 @@ main {
   color: var(--weekend);
 }
 
-.illustration {
-  height: 190px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, var(--surface-soft), var(--surface));
+.day-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 28px;
+  align-items: start;
 }
 
-.section-card:nth-child(5) .illustration {
-  height: 100%;
-  min-height: 260px;
-  margin-bottom: 0;
-}
-
-.shape {
-  position: absolute;
-  border-radius: 24px;
-  background: var(--primary);
+.day-photo {
+  overflow: hidden;
+  height: 420px;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  box-shadow: var(--shadow);
 }
 
-.shape.one {
-  left: 10%;
-  top: 22%;
-  width: 34%;
-  height: 44%;
+.day-detail {
+  padding: 34px;
 }
 
-.shape.two {
-  right: 12%;
-  top: 18%;
-  width: 30%;
-  height: 58%;
-  background: var(--accent);
-  border-radius: 50%;
+.day-detail p {
+  font-size: 1.05rem;
 }
 
-.shape.three {
-  left: 28%;
-  bottom: 16%;
-  width: 44%;
-  height: 18%;
-  background: var(--accent-soft);
+.day-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
   border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 
-.illustration-estudies .shape.one,
-.illustration-road .shape.one,
-.illustration-review .shape.one {
-  border-radius: 18px;
-  transform: rotate(-5deg);
+.text-link.primary {
+  background: var(--primary-strong);
+  color: var(--bg);
 }
 
-.illustration-team .shape.two,
-.illustration-rest .shape.two {
-  border-radius: 24px 50% 24px 50%;
-}
-
-.illustration-deadline .shape.three {
-  height: 26%;
-  border-radius: 16px;
+.text-link:hover {
+  transform: translateY(-2px);
 }
 
 .closing {
   margin-top: 28px;
   background: var(--primary-strong);
   color: var(--bg);
-  border-radius: var(--radius);
   padding: 34px;
 }
 
@@ -475,17 +494,44 @@ footer {
   text-align: center;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .photo-main,
+  .day-card-link:hover,
+  .day-card-link:hover img,
+  .text-link:hover,
+  .day-button:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 980px) {
   .site-header {
     min-height: auto;
   }
 
-  .hero {
+  .hero,
+  .day-layout {
     grid-template-columns: 1fr;
   }
 
   .hero-visual {
     min-height: 330px;
+  }
+
+  .day-photo {
+    height: 320px;
   }
 
   .topbar-inner {
@@ -496,17 +542,13 @@ footer {
     display: none;
   }
 
-  .intro-note {
+  .intro-note,
+  .featured-card {
     grid-template-columns: 1fr;
   }
 
-  .section-card:nth-child(5) {
-    grid-template-columns: 1fr;
-  }
-
-  .section-card:nth-child(5) .illustration {
+  .featured-card img {
     height: 220px;
-    min-height: 220px;
   }
 }
 
@@ -547,9 +589,19 @@ footer {
 
   .intro-note,
   .section-card,
+  .day-detail,
   .closing {
     padding: 20px;
     border-radius: 18px;
+  }
+
+  .day-card-link,
+  .day-photo {
+    min-height: auto;
+  }
+
+  .day-photo {
+    height: 240px;
   }
 
   .hero-visual {
@@ -557,13 +609,8 @@ footer {
     border-radius: 24px;
   }
 
-  .calendar {
-    width: 74px;
-    height: 74px;
-    font-size: 1.7rem;
-  }
-
-  .coffee {
-    transform: scale(0.8);
+  .day-card-link img,
+  .featured-card img {
+    height: 190px;
   }
 }

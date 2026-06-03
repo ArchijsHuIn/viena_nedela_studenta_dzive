@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viena darba nedēļa Datorikas nodaļas studenta dzīvē</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+
+  <header class="site-header" id="sakums">
+    <section class="hero" aria-label="Vietnes ievads">
+      <div class="hero-text">
+        <p class="eyebrow">Tīmekļa dizaina pamati</p>
+        <h1>Viena darba nedēļa Datorikas nodaļas studenta dzīvē</h1>
+        <p class="lead">
+          Vienas lapas tīmekļa vietne par studenta nedēļas ritmu: lekcijām, e-studijām,
+          praktiskajiem darbiem, klātienes nodarbībām, termiņiem un mierīgāku brīvdienu noslēgumu.
+        </p>
+        <div class="author-box">
+          <span>Autors:</span>
+          <strong>Artūrs Balnass</strong>
+          <span>·</span>
+          <span>Darba nosaukums: Viena darba nedēļa studenta dzīvē</span>
+        </div>
+      </div>
+
+      <figure class="hero-visual" role="img" aria-label="Autora veidota noskaņas ilustrācija ar datoru, kalendāru un kafiju">
+        <div class="screen"></div>
+        <div class="calendar">7</div>
+        <div class="desk"></div>
+        <div class="coffee"></div>
+      </figure>
+    </section>
+  </header>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="home-link" href="#sakums">Sākums</a>
+
+      <nav class="day-nav" aria-label="Dienu izvēlne">
+        <button class="day-button active" type="button" data-target="pirmdiena" aria-label="Pirmdiena" aria-current="true" title="Pirmdiena">Pr</button>
+        <button class="day-button" type="button" data-target="otrdiena" aria-label="Otrdiena" title="Otrdiena">Ot</button>
+        <button class="day-button" type="button" data-target="tresdiena" aria-label="Trešdiena" title="Trešdiena">Tr</button>
+        <button class="day-button" type="button" data-target="ceturtdiena" aria-label="Ceturtdiena" title="Ceturtdiena">Ce</button>
+        <button class="day-button" type="button" data-target="piektdiena" aria-label="Piektdiena" title="Piektdiena">Pk</button>
+        <button class="day-button weekend" type="button" data-target="sestdiena" aria-label="Sestdiena" title="Sestdiena">Se</button>
+        <button class="day-button weekend" type="button" data-target="svetdiena" aria-label="Svētdiena" title="Svētdiena">Sv</button>
+      </nav>
+
+      <span class="active-day-text" id="activeDayText">Pirmdiena</span>
+      <button class="mode-toggle" type="button" id="modeToggle" aria-pressed="false">Tumšais režīms</button>
+    </div>
+  </div>
+
+  <main id="saturs">
+    <section class="intro-note">
+      <div>
+        <span class="day-label">Sākuma sadaļa</span>
+        <h2>Par ieceri</h2>
+      </div>
+      <p>
+        Lapa ir veidota kā vienkāršs stāsts par Datorikas nodaļas studenta nedēļu.
+        Katras dienas sadaļā ir īss apraksts un autora veidota ģeometriska ilustrācija,
+        lai saturs būtu pārskatāms arī bez ārējiem attēlu avotiem. Navigācijai izmantotas
+        dienu pirmo burtu pogas. Sestdiena un svētdiena iezīmētas ar sarkaniem burtiem,
+        jo tās vizuāli atdala brīvdienas no darba nedēļas ritma.
+      </p>
+    </section>
+
+    <section class="week-grid" aria-label="Nedēļas dienu sadaļas">
+      <article class="section-card" id="pirmdiena" data-day="Pirmdiena">
+        <figure class="illustration illustration-planning" role="img" aria-label="Ilustrācija ar plānotāju un lekciju sarakstu">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label">Pirmdiena</span>
+        <h2>Plānošana un lekciju sākums</h2>
+        <p>
+          Pirmdiena sākas ar mēģinājumu saprast, kāda būs visa nedēļa. Students pārskata lekciju
+          sarakstu, atver e-studiju vidi un pieraksta svarīgākos termiņus. Pēc brīvdienām nav viegli
+          uzreiz ieiet ritmā, tāpēc palīdz skaidrs plāns. No rīta tiek sagatavots dators, pieraksti un faili,
+          kas būs vajadzīgi pirmajām nodarbībām. Lekcijās uzmanība tiek pievērsta ne tikai jaunajai vielai,
+          bet arī tam, kuri uzdevumi būs jāizpilda patstāvīgi. Dienas beigās students jau redz, kuras tēmas
+          prasīs vairāk laika un kur varēs strādāt ātrāk.
+        </p>
+      </article>
+
+      <article class="section-card" id="otrdiena" data-day="Otrdiena">
+        <figure class="illustration illustration-estudies" role="img" aria-label="Ilustrācija ar e-studiju vidi un praktisko darbu">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label">Otrdiena</span>
+        <h2>E-studijas un praktiskie darbi</h2>
+        <p>
+          Otrdienā lielākā uzmanība tiek pievērsta praktiskai darbībai. Students pieslēdzas e-studiju videi,
+          pārbauda, vai nav publicēti jauni materiāli, un lejupielādē failus, kas vajadzīgi uzdevumiem.
+          Praktiskajos darbos teorija kļūst konkrētāka, jo jāizmēģina komandas, jālabo kļūdas un jāmeklē
+          risinājumi. Dažreiz pietiek ar dažām minūtēm, bet citreiz viena neliela problēma aizņem daudz
+          ilgāku laiku nekā plānots. Tāpēc svarīgi pierakstīt, kas izdevās un kas vēl jāpārbauda.
+        </p>
+      </article>
+
+      <article class="section-card" id="tresdiena" data-day="Trešdiena">
+        <figure class="illustration illustration-team" role="img" aria-label="Ilustrācija ar grupas darbu un sarunu burbuļiem">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label">Trešdiena</span>
+        <h2>Darbs komandā un konsultācijas</h2>
+        <p>
+          Trešdiena bieži ir nedēļas viduspunkts, kad kļūst skaidrs, cik daudz darba vēl palicis. Šajā dienā
+          students sazinās ar kursabiedriem, pārrunā kopīgos projektus un sadala pienākumus. Komandas darbā
+          svarīgi ne tikai izpildīt savu daļu, bet arī saprast, kā tā savienojas ar pārējo darbu. Ja rodas
+          neskaidrības, students pieraksta jautājumus konsultācijai vai uzdod tos nodarbībā. Dažreiz tieši
+          saruna ar citiem palīdz atrast kļūdu, kuru vienatnē būtu grūti pamanīt.
+        </p>
+      </article>
+
+      <article class="section-card" id="ceturtdiena" data-day="Ceturtdiena">
+        <figure class="illustration illustration-road" role="img" aria-label="Ilustrācija ar ceļu uz nodarbībām un klātienes studijām">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label">Ceturtdiena</span>
+        <h2>Klātiene, ceļš un laika plānošana</h2>
+        <p>
+          Ceturtdienā students vairāk izjūt, ka studijas nenotiek tikai pie datora. Ja ir klātienes nodarbības,
+          jāieplāno ceļš, sabiedriskais transports, ēšanas pauze un laiks starp lekcijām. Šīs mazās lietas
+          ietekmē visu dienu, jo nokavēta pārsēšanās vai aizmirsts lādētājs var sabojāt darba ritmu. Ceļā uz
+          nodarbībām students atkārto iepriekšējās tēmas vai pārskata pierakstus telefonā. Klātienē vieglāk
+          uzdot jautājumus un uztvert pasniedzēja skaidrojumu.
+        </p>
+      </article>
+
+      <article class="section-card" id="piektdiena" data-day="Piektdiena">
+        <figure class="illustration illustration-deadline" role="img" aria-label="Ilustrācija ar piektdienas termiņiem un atpūtas brīdi">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label">Piektdiena</span>
+        <h2>Termiņi, kopsavilkums un atelpa</h2>
+        <p>
+          Piektdiena ir diena, kad studenti visvairāk jūt termiņus. Tiek pārbaudīts, vai uzdevumi ir iesniegti
+          pareizajā vietā, vai faili atveras un vai nosaukumi ir saprotami. Pirms darba nodošanas students vēlreiz
+          izlasa prasības, salīdzina tās ar paveikto un izlabo sīkas kļūdas. Šis brīdis māca, ka labs rezultāts
+          nav tikai ideja, bet arī kārtīga noformēšana un pārbaudāma iesniegšana. Kad svarīgākie darbi ir pabeigti,
+          var atskatīties uz visu nedēļu un saprast, ko nākamreiz sākt agrāk.
+        </p>
+      </article>
+
+      <article class="section-card weekend-card" id="sestdiena" data-day="Sestdiena">
+        <figure class="illustration illustration-rest" role="img" aria-label="Ilustrācija ar mierīgāku sestdienas ritmu">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label weekend-label">Sestdiena</span>
+        <h2>Atpūta un nepabeigto darbu sakārtošana</h2>
+        <p>
+          Sestdienā studenta ritms kļūst mierīgāks, taču tas nenozīmē, ka studijas pilnībā pazūd. Ja darba
+          nedēļā kaut kas palicis nepabeigts, sestdiena ir piemērota diena, lai to sakārtotu bez steigas.
+          Students pārskata mapes, pārdēvē failus, papildina pierakstus un atzīmē jautājumus, kuri vēl nav
+          skaidri. Tajā pašā laikā svarīgi nepārvērst brīvdienu par vēl vienu pilnu darba dienu. Tāpēc daļa
+          laika tiek atstāta pastaigai, draugiem vai vienkārši atpūtai no ekrāna. Šāds līdzsvars palīdz neatnākt
+          uz nākamo nedēļu jau nogurušam.
+        </p>
+      </article>
+
+      <article class="section-card weekend-card" id="svetdiena" data-day="Svētdiena">
+        <figure class="illustration illustration-review" role="img" aria-label="Ilustrācija ar svētdienas pārskatu un sagatavošanos jaunai nedēļai">
+          <span class="shape one"></span><span class="shape two"></span><span class="shape three"></span>
+        </figure>
+        <span class="day-label weekend-label">Svētdiena</span>
+        <h2>Sagatavošanās jaunai nedēļai</h2>
+        <p>
+          Svētdiena ir robeža starp atpūtu un jaunas darba nedēļas sākumu. Students pārskata kalendāru,
+          pārbauda, vai nākamajai dienai ir vajadzīgi īpaši materiāli, un sakārto darba vidi. Ja piektdien viss
+          nav līdz galam pārdomāts, svētdien var mierīgi izveidot īsu plānu pirmdienai. Šajā dienā nevajadzētu
+          mēģināt paveikt visu uzreiz, jo pārāk liela slodze sabojā atpūtas sajūtu. Labāk pietiek ar dažiem
+          skaidriem soļiem: pārbaudīt termiņus, sagatavot datoru un laicīgi aiziet gulēt. Tas padara pirmdienu
+          daudz mierīgāku.
+        </p>
+      </article>
+    </section>
+
+    <section class="closing" aria-label="Nobeigums">
+      <h2>Nedēļas secinājums</h2>
+      <p>
+        Datorikas nodaļas studenta nedēļa ir ritms starp lekcijām, praktiskiem uzdevumiem, digitālām platformām
+        un atpūtas brīžiem. Lai nedēļa neizjuktu, svarīgi regulāri pārskatīt prasības, saglabāt failus saprotamā
+        kārtībā un neatlikt sarežģītākos uzdevumus uz pēdējo brīdi.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Artūrs Balnass · Viena darba nedēļa Datorikas nodaļas studenta dzīvē</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
